@@ -1,0 +1,2 @@
+npm test
+node bin/index.js

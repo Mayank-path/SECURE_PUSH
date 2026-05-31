@@ -1,0 +1,21 @@
+{
+  "name": "secure-push-guard",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "secure-push-guard": "./bin/index.js"
+  },
+  "scripts": {
+    "scan": "node bin/index.js",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "commander": "^15.0.0",
+    "ignore": "^7.0.5",
+    "simple-git": "^3.36.0"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
