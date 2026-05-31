@@ -1,6 +1,7 @@
 {
-  "name": "secure-push-guard",
+  "name": "securepush",
   "version": "1.0.0",
+  "description": "Git-integrated security scanner for detecting secrets and unsafe code before push",
   "type": "module",
   "bin": {
     "secure-push-guard": "./bin/index.js"

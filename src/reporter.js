@@ -1,9 +1,14 @@
 import chalk from "chalk"
 
 export function reportIssues(issues, meta = {}) {
+  console.log(chalk.cyan.bold(`
+🔐 SecurePush Security Scanner
+--------------------------------
+`))
+
   if (issues.length === 0) {
     console.log(
-      chalk.green.bold("\n✅ SecurePush: No security issues found\n")
+      chalk.green.bold("✅ SecurePush: No security issues found\n")
     )
     return
   }
@@ -12,9 +17,7 @@ export function reportIssues(issues, meta = {}) {
   let medium = 0
   let low = 0
 
-  console.log(
-    chalk.red.bold("\n🚨 SecurePush found security issues:\n")
-  )
+  console.log(chalk.red.bold("🚨 SecurePush found security issues:\n"))
 
   for (const issue of issues) {
     const color =
@@ -28,32 +31,18 @@ export function reportIssues(issues, meta = {}) {
     else if (issue.severity === "MEDIUM") medium++
     else low++
 
-    console.log(
-      color.bold(`🚨 ${issue.severity}: ${issue.rule}`)
-    )
-
-    console.log(
-      chalk.white(`File : ${issue.file}:${issue.line}`)
-    )
-
-    console.log(
-      chalk.gray(`Code : ${issue.code}`)
-    )
-
-    console.log(
-      chalk.cyan(`Fix  : ${issue.suggestion}`)
-    )
-
+    console.log(color.bold(`🚨 ${issue.severity}: ${issue.rule}`))
+    console.log(chalk.white(`File : ${issue.file}:${issue.line}`))
+    console.log(chalk.gray(`Code : ${issue.code}`))
+    console.log(chalk.cyan(`Fix  : ${issue.suggestion}`))
     console.log("")
   }
 
   console.log(chalk.white.bold("──────── Scan Summary ────────"))
-
   console.log(chalk.red(`HIGH   : ${high}`))
   console.log(chalk.yellow(`MEDIUM : ${medium}`))
   console.log(chalk.blue(`LOW    : ${low}`))
   console.log(chalk.white(`Files scanned : ${meta.filesScanned || 0}`))
   console.log(chalk.white(`Scan time     : ${meta.duration || 0}ms`))
-
   console.log("")
 }
