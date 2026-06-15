@@ -1,14 +1,19 @@
 {
-  "name": "securepush",
+  "name": "secure-push-guard",
   "version": "1.0.1",
   "description": "Git-integrated security scanner for detecting secrets and unsafe code before commit",
   "type": "module",
   "bin": {
-    "secure-push-guard": "./bin/index.js"
+    "secure-push-guard": "bin/index.js"
   },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "scan": "node bin/index.js",
-    "prepare": "husky"
+    "scan": "node bin/index.js"
   },
   "dependencies": {
     "@babel/parser": "^7.29.7",
