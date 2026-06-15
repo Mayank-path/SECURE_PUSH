@@ -11,7 +11,7 @@ const start = performance.now()
 const files = getChangedFiles()
 
 if (files.length === 0) {
-  console.log("✅ SecurePush: No staged files to scan")
+  console.log("[PASSED] No staged files to scan")
   process.exit(0)
 }
 
@@ -28,19 +28,20 @@ reportIssues(issues, {
   duration,
 })
 
-const hasHighIssue = issues.some(
-  issue => issue.severity === "HIGH"
+const shouldBlockPush = issues.some(
+  issue =>
+    issue.severity === "HIGH" ||
+    issue.severity === "MEDIUM"
 )
 
-if (hasHighIssue) {
+if (shouldBlockPush) {
   console.log(
-    "❌ Push blocked due to HIGH severity issue"
+    "[BLOCKED] Push blocked due to security issues"
   )
 
   process.exit(1)
 }
 
-console.log("✅ Push allowed")
+console.log("[PASSED] Push allowed")
 
 process.exit(0)
-

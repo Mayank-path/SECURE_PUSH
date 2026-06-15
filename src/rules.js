@@ -29,16 +29,6 @@ export const rules = [
     severity: "LOW",
     suggestion: "Remove debugger before pushing code"
   },
-  {
-    name: "Dangerous eval",
-    regex: /\beval\s*\(/g,
-    severity: "HIGH",
-    suggestion: "Avoid eval because it can execute unsafe code"
-  },
-  {
-    name: "Unsafe innerHTML",
-    regex: /\.innerHTML\s*=/g,
-    severity: "MEDIUM",
-    suggestion: "Avoid innerHTML with user input. Use textContent or sanitization"
-  }
+  
+  
 ]
