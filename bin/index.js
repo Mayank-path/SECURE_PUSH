@@ -36,12 +36,12 @@ const shouldBlockPush = issues.some(
 
 if (shouldBlockPush) {
   console.log(
-    "[BLOCKED] Push blocked due to security issues"
+    "[BLOCKED] commit blocked due to security issues"
   )
 
   process.exit(1)
 }
 
-console.log("[PASSED] Push allowed")
+console.log("[PASSED] commit allowed")
 
 process.exit(0)
